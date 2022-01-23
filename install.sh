@@ -144,7 +144,7 @@ pacman -S xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-x
     bspwm sxhkd dunst pavucontrol acpi lxappearance papirus-icon-theme arc-gtk-theme rofi python-pywal nitrogen \
     zsh zsh-syntax-highlighting zsh-autosuggestions alacritty ranger nnn mpd playerctl mpc ncmpcpp nemo \
     neofetch lolcat htop bashtop keepassxc yubioath-desktop vim neovim emacs nodejs libreoffice \
-    hunspell hunspell-en_us hyphen hyphen-en libmythes mythes-en gimp krita feh firefox starship dust bat \
+    hunspell hunspell-en_us hyphen hyphen-en libmythes mythes-en gimp krita feh firefox starship dust bat exa \
     xfce4-clipman-plugin discord-canary rclone rsync maim xdotool noto-fonts noto-fonts-emoji \
     ttf-joypixels ttf-font-awesome sxiv mpv numlockx imagemagick fzf gzip p7zip libzip zip unzip yt-dlp xclip \
     dhcpcd networkmanager pamixer paprefs pulseaudio pulseaudio-alsa sudo man-db git base-devel krita kdenlive inkscape
@@ -180,6 +180,8 @@ git clone --separate-git-dir=$HOME/.dotfiles https://github.com/DoctorJax/.dotfi
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
+
+git clone https://gitlab.com/dwt1/wallpapers.git
 
 git clone https://aur.archlinux.org/paru.git
 cd paru
