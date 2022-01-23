@@ -81,7 +81,7 @@ sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
 
 makej=$(nproc)
 makel=$(expr "$(nproc)" + 1)
-sed -i "s/^#MAKEFLAGS=\"-j2\"$/MAKEFLAGS=\"-j$makej -l$makel\"" /etc/makepkg.conf
+sed -i "s/^#MAKEFLAGS=\"-j2\"$/MAKEFLAGS=\"-j$makej -l$makel\"/" /etc/makepkg.conf
 
 # Setting timezone stuff
 ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime
@@ -148,7 +148,7 @@ pacman -S xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-x
     xfce4-clipman-plugin discord-canary rclone rsync maim xdotool noto-fonts noto-fonts-emoji \
     ttf-joypixels ttf-font-awesome sxiv mpv numlockx imagemagick fzf gzip p7zip libzip zip unzip yt-dlp xclip \
     dhcpcd networkmanager network-manager-applet pamixer paprefs pulseaudio pulseaudio-alsa sudo man-db git base-devel \
-    krita kdenlive inkscape
+    krita kdenlive inkscape zathura zathura-pdf-mupdf
 
 systemctl enable NetworkManager.service
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -182,6 +182,9 @@ git clone --separate-git-dir=$HOME/.dotfiles https://github.com/DoctorJax/.dotfi
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
+
+# Creating default directories
+mkdir -p Documents Downloads Pictures Music
 
 # DTs wallpapers
 git clone https://gitlab.com/dwt1/wallpapers.git
