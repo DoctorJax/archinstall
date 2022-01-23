@@ -176,13 +176,20 @@ exit
 
 cd $HOME
 
+# My dotfiles
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/DoctorJax/.dotfiles.git tmpdotfiles
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 
+# DTs wallpapers
 git clone https://gitlab.com/dwt1/wallpapers.git
 
+# Vim Plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Paru
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
