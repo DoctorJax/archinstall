@@ -32,10 +32,12 @@ cfdisk "$drive"
 clear
 lsblk "$drive"
 
-read -r -p "Did you create an EFI partition? [y/n]" answer
+echo -ne "Enter EFI partition: "
+read -r efipartition
+
+read -r -p "Should we format the EFI partition? [y/n]: " answer
 if [[ $answer = y ]]; then
-    echo "Enter EFI partition: "
-    read -r efipartition
+    echo "There it goes then"
     mkfs.vfat -F 32 "$efipartition"
 else
     echo "Alright, skipping EFI partition formatting"
