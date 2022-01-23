@@ -147,7 +147,8 @@ pacman -S xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-x
     hunspell hunspell-en_us hyphen hyphen-en libmythes mythes-en gimp krita feh firefox starship dust bat exa \
     xfce4-clipman-plugin discord-canary rclone rsync maim xdotool noto-fonts noto-fonts-emoji \
     ttf-joypixels ttf-font-awesome sxiv mpv numlockx imagemagick fzf gzip p7zip libzip zip unzip yt-dlp xclip \
-    dhcpcd networkmanager pamixer paprefs pulseaudio pulseaudio-alsa sudo man-db git base-devel krita kdenlive inkscape
+    dhcpcd networkmanager network-manager-applet pamixer paprefs pulseaudio pulseaudio-alsa sudo man-db git base-devel \
+    krita kdenlive inkscape
 
 systemctl enable NetworkManager.service
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
