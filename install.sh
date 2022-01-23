@@ -59,7 +59,7 @@ swapon "$swappartition"
 
 # Initial Install
 pacstrap /mnt base base-devel linux linux-firmware
-genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U /mnt > /mnt/etc/fstab
 
 # Moving the rest of the script to the install and chrooting
 sed '1,/^###part2$/d' install.sh > /mnt/install2.sh
@@ -75,8 +75,13 @@ exit
 
 #!/bin/bash
 
+# Setting things so things are faster
 pacman -S --noconfirm sed
 sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
+
+makej=$(nproc)
+makel=$(expr "$(nproc)" + 1)
+sed -i "s/^#MAKEFLAGS=\"-j2\"$/MAKEFLAGS=\"-j$makej -l$makel\"" /etc/makepkg.conf
 
 # Setting timezone stuff
 ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime
