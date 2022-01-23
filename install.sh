@@ -187,6 +187,6 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
-paru -S polybar awesome-git awesome-freedesktop-git picom-jonaburg-git mpd-mpris pfetch nerd-fonts-complete brave-bin mailspring
+paru -S polybar awesome-git awesome-freedesktop-git picom-jonaburg-git mpd-mpris pfetch xcursor-breeze nerd-fonts-complete brave-bin mailspring
 
 exit
