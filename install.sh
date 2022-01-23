@@ -38,7 +38,7 @@ read -r efipartition
 read -r -p "Should we format the EFI partition? [y/n]: " answer
 if [[ $answer = y ]]; then
     echo "There it goes then"
-    mkfs.vfat -F 32 "$efipartition"
+    mkfs.fat -F 32 "$efipartition"
 else
     echo "Alright, skipping EFI partition formatting"
 fi
@@ -53,6 +53,7 @@ mkfs.ext4 "$rootpartition"
 
 # Mounting filesystems
 mount "$rootpartition" /mnt
+mkdir -p /mnt/boot
 mount "$efipartition" /mnt/boot
 swapon "$swappartition"
 
