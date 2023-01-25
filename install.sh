@@ -3,11 +3,6 @@
 clear
 echo -ne "
 -------------------------------------
-     ▛▀▖      ▐         ▜▘
-     ▌ ▌▞▀▖▞▀▖▜▀ ▞▀▖▙▀▖ ▐▝▀▖▚▗▘
-     ▌ ▌▌ ▌▌ ▖▐ ▖▌ ▌▌  ▌▐▞▀▌▗▚
-     ▀▀ ▝▀ ▝▀  ▀ ▝▀ ▘  ▝▘▝▀▘▘ ▘
--------------------------------------
 Yes, I definitely know what I'm doing
 -------------------------------------
 "
@@ -143,13 +138,13 @@ echo "options root=$(blkid | grep $rootpart | awk '{print $2}' | sed 's/"//g') l
 pacman -S xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop xorg-xrandr xorg-xinput \
     bspwm sxhkd dunst pavucontrol acpi lxappearance papirus-icon-theme arc-gtk-theme rofi \
     zsh zsh-syntax-highlighting zsh-autosuggestions alacritty ranger nnn mpd playerctl mpc ncmpcpp nemo \
-    neofetch lolcat htop bashtop keepassxc yubioath-desktop vim neovim emacs nodejs libreoffice \
+    lolcat htop btop keepassxc yubioath-desktop vim neovim nodejs libreoffice \
     hunspell hunspell-en_us hyphen hyphen-en libmythes mythes-en gimp krita feh firefox starship dust bat exa \
     xfce4-clipman-plugin discord-canary rclone rsync maim xdotool noto-fonts noto-fonts-emoji \
     ttf-joypixels ttf-font-awesome sxiv mpv numlockx imagemagick fzf gzip p7zip libzip zip unzip yt-dlp xclip \
     dhcpcd networkmanager network-manager-applet sudo man-db git base-devel krita kdenlive inkscape \
     pipewire lib32-pipewire wireplumber qpwgraph pipewire-alsa pipewire-pulse pipewire-jack \
-    zathura zathura-pdf-mupdf
+    zathura zathura-pdf-mupdf ripgrep fd
 
 systemctl enable NetworkManager.service
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -199,6 +194,10 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
-paru -S polybar awesome-git awesome-freedesktop-git picom-jonaburg-git mpd-mpris pfetch xcursor-breeze nerd-fonts-complete brave-bin mailspring
+paru -S hyprland-git xdg-desktop-portal-hyprland-git emacs-gcc-wayland-devel-bin fastfetch-git pfetch xcursor-breeze brave-bin mailspring nerd-fonts-complete
+
+# Doom Emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install
 
 exit
