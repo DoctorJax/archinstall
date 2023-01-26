@@ -194,7 +194,7 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
-paru -S hyprland-git xdg-desktop-portal-hyprland-git emacs-gcc-wayland-devel-bin fastfetch-git pfetch xcursor-breeze brave-bin mailspring nerd-fonts-complete
+paru -S hyprland-git xdg-desktop-portal-hyprland-git eww-wayland waybar-hyprland-git emacs-gcc-wayland-devel-bin fastfetch-git pfetch xcursor-breeze brave-bin mailspring nerd-fonts-complete
 
 # Doom Emacs
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
